@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section id="services-container">
+        <h1 class="h-primary center">Our Services</h1>
+        <div id="services">
+
+            {% for data  in srdata %}
+                
+            <div class="box">
+                <img src="/static/img/{{data.service_icon}}" alt="">
+
+                <h2 class="h-sec    ondary center">{{data.service_title}}</h2> 
+                <p class="center">{{data.service_description | safe | lower }}</p>
+
+                </div>
+
+                {% endfor %}
+        </div> 
+
+        <nav aria-label="...">
+          <ul class="pagination justify-content-center pagination-lg">
+            
+            {% if srdata.has_previous%}
+
+                <li class="page-item">
+                  <a class="page-link" href="/services/?page=1">First</a>
+                </li>
+
+                <li class="page-item">
+                  <a class="page-link" href='/services/?page={{srdata.previous_page_number}}'>Previous</a>
+                </li>
+            {% endif %}
+              
+
+            {% for listnum in totalPageList  %}
+            <li class="page-item"><a class="page-link" href="/services/?page={{listnum}}">{{listnum}}</a></li>            
+            {% endfor %}
+
+            {% if srdata.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="/services/?page={{srdata.next_page_number}}">Next</a>
+            </li>
+
+              <li class="page-item">
+              <a class="page-link" href="/services/?page={{lastPage}}">Last</a>
+            </li>
+            {% endif %}
+            
+          </ul>
+        </nav>
+    </section>
+
+{% endblock  %} 

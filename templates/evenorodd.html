@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="feature-area section-gap" id="service">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Even or Odd Number Checker</h1>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <form action="" method="POST">
+
+                 {% csrf_token %}
+
+                    <!-- Input Feild -->
+                    <input type="text" name="number" class="form-control" placeholder="Enter Number you  want to check even or odd">
+                    <br>
+
+                    <!-- Check BUtton -->
+                    <button type="submit" class="btn">Check</button>
+                    <br>
+                    <br>
+
+                    <!-- Output Feild  -->
+                    <label>Output:</label>
+                    <input type="text" class="form-control" value="{{op}}" placeholder="output will be displyed here">
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+</section>
+
+{% endblock  %}
+
+

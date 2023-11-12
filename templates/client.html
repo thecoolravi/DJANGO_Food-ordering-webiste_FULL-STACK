@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section id="client-section">
+        <h1 class="h-primary center">Our Clients</h1>
+        <div id="clients">
+            <div class="client-item">
+                <img src="/static/img/logo1.png" alt="Our Client">
+            </div>
+            <div class="client-item">
+                <img src="/static/img/logo2.png" alt="Our Client">
+            </div>
+        
+            <div class="client-item">
+                <img src="/static/img/logo4.png" alt="Our Client">
+            </div>
+            <div class="client-item">
+                <img src="/static/img/logo3.png" alt="Our Client">
+            </div>
+        </div>
+
+    </section>
+
+
+    <div>
+        {{email}}
+    </div>
+
+
+    <form action="" method=" GET">
+            <div class="search-container">
+            <input type="text" class="search-input" name ="servicename" placeholder="Search..."> 
+            <button class="search-button" type="submit">Search</button>
+            </div>
+    </form><br>
+
+
+    <div>
+        {% for news in NewsData %}
+            <marquee onmouseover = "stop()" onmouseout = "start()" class= "alert alert-info" direction="left">
+                <a href = "/newsdetails/{{news.news_slug}}" class= "alert alert-primary href"> {{news.news_title}} </a> &nbsp &nbsp
+                    
+            </marquee>
+
+        {% empty %}
+
+        <div class="container mt-5">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                NO DATA FOUND...
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+
+{% endblock  %}

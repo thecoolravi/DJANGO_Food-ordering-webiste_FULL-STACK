@@ -1,0 +1,30 @@
+{% extends 'base.html' %}    
+
+{% block content %}
+
+
+</head>
+    <body>
+        
+        <div>
+            <h1>Calculate</h1>
+            <br>
+
+            <form method = "POST">
+                {% csrf_token %}
+                <div>
+                    {{form}}
+                </div> 
+            <br>
+                <div>
+                    <p>{{output}}</p>
+                </div>
+                
+                <button class = "btn"  type="Submit">Submit</button>
+            </form>
+            
+        </div>
+
+    </body>
+
+{% endblock %}

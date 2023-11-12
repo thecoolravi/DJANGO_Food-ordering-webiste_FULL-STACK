@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="feature-area section-gap" id="service">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Marks Sheet</h1>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <form action="" method="POST">
+
+                  {% comment %} Alert Box {% endcomment %}
+                  {% if error %}
+                  <div class="alert alert-danger " role="alert" >
+                    Please Enter the value
+                  </div>
+                  {% endif %}
+
+
+                  
+                  {% csrf_token %}
+
+                    <!-- Input Feild -->
+                    <input type="text" name="sub1" class="form-control" placeholder="Enter Subject 1 Marks">
+                    <br>
+                      <input type="text" name="sub2" class="form-control" placeholder="Enter Subject 2 Marks">
+                    <br>
+                      <input type="text" name="sub3" class="form-control" placeholder="Enter Subject 3 Marks">
+                    <br>
+                      <input type="text" name="sub4" class="form-control" placeholder="Enter Subject 4 Marks">
+                    <br>
+                      <input type="text" name="sub5" class="form-control" placeholder="Enter Subject 5 Marks">
+                    <br>
+                    
+
+                    <!-- Check BUtton -->
+                    <button type="submit" class="btn">Display Result</button>
+                    <br>
+                    <br>
+
+                    <!-- Output Feild  -->
+                    <label for="">Total(out of 500)</label>
+                    <input type="text" class="form-control" value="{{total}}" placeholder="Total will be Displayed here"><br>
+
+                    <label for="">Percentage</label>
+                    <input type="text" class="form-control" value="{{percentage}}" placeholder="Percentage will be Displayed here"><br>
+
+                    <label for="">Division</label>
+                    <input type="text" class="form-control" value="{{division}}" placeholder="Division will be Displayed here"><br>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+</section>
+
+{% endblock  %}
+
+
